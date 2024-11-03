@@ -1,0 +1,21 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+RELAY_PIN = 17  # GPIO pin for relay
+GPIO.setup(RELAY_PIN, GPIO.OUT)
+
+# Water when soil moisture is below threshold
+def control_irrigation(soil_moisture_level):
+    if soil_moisture_level < 300:
+        GPIO.output(RELAY_PIN, GPIO.HIGH)  # Turn on pump
+        time.sleep(5)
+        GPIO.output(RELAY_PIN, GPIO.LOW)   # Turn off pump
+
+try:
+    while True:
+        soil_moisture_level = read_soil_sensor()  # Implement read_soil_sensor function
+        control_irrigation(soil_moisture_level)
+        time.sleep(60)
+except KeyboardInterrupt:
+    GPIO.cleanup()
