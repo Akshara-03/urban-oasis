@@ -1,0 +1,12 @@
+import firebase from 'firebase/app';
+import 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  databaseURL: "YOUR_DATABASE_URL",
+};
+
+firebase.initializeApp(firebaseConfig);
+
+export const database = firebase.database();
