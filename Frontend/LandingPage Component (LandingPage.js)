@@ -1,0 +1,13 @@
+import React from 'react';
+
+function LandingPage() {
+  return (
+    <div className="container">
+      <h1>Welcome to Urban Oasis</h1>
+      <p>Our mission is to enhance urban biodiversity and community well-being.</p>
+      <button className="btn btn-primary">Learn More</button>
+    </div>
+  );
+}
+
+export default LandingPage;
